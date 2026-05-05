@@ -50,10 +50,19 @@ export class DivisionService {
 
   //Encontrar 1 división según el ID
   async findOne(id: number) {
-    return await this.divisionRepository.findOne({
+    const division = await this.divisionRepository.findOne({
       where: { id },
-      relations: ['padre', 'subdivisiones'],
+      relations: ['padre', 'subdivisiones', 'colaboradores'],
     });
+
+    //Validar si existe la division
+    if (division != null) { //SI existe => Retornar los datos
+      return division;
+    }
+
+    else { //NO existe => Lanzar la excepción
+      throw new NotFoundException(`La división con ID ${id} no existe`);
+    }
   }
 
   //Obtener todos los empleados de una misma división
