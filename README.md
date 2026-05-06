@@ -43,3 +43,11 @@ Dentro de la carpeta /docs se encuentran los recursos necesarios para probar el 
 *   **seeds.sql:** Script para popular la base de datos con la pirámide de 10 divisiones y los colaboradores.
 *   **diagram.png:** Diagrama del modelo Entidad-Relación de la base de datos.
 *   **Divisiones-Reto.postman_collection.json:** Colección para importar en Postman y probar los endpoints (con esto se hicieron las pruebas locales).
+
+
+##  Despliegue:
+Estos son los links generados donde se puede ver el despliegue dinámico
+*   **Link Base Generado:** https://divisiones-backend.onrender.com
+*   **Link Colaboradores:** https://divisiones-backend.onrender.com/colaborador
+*   **Link Divisiones:** https://divisiones-backend.onrender.com/division
+*   **Base de Datos:** TiDB Cloud (MySQL Serverless)
