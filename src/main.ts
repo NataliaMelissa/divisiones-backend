@@ -5,6 +5,8 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  app.enableCors(); //FIX: Acceso al Frontend
   
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true,
