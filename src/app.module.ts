@@ -9,13 +9,14 @@ import { Division } from './division/entities/division.entity';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '',
-      database: 'db_divisiones', //Nombre BD creada en XAMPP phpMyAdmin
-      entities: [Division, Colaborador], //Entidades creadas
-      synchronize: true, //Sincroniza los cambios con la BD
+      host: process.env.DB_HOST || 'localhost',
+      port: parseInt(process.env.DB_PORT || '3306'),
+      username: process.env.DB_USERNAME || 'root',
+      password: process.env.DB_PASSWORD || '',
+      database: process.env.DB_NAME || 'db_divisiones',
+      entities: [Division, Colaborador],
+      synchronize: true,
+      ssl: process.env.DB_HOST ? { rejectUnauthorized: false } : false,
     }),
     DivisionModule,
     ColaboradorModule,
